@@ -1,0 +1,135 @@
+
+        :root {
+            --ismh-green: #1B4332; /* Verde do Logo */
+            --ismh-gold: #B8860B;  /* Dourado do Logo */
+            --ismh-blue: #87CEEB;  /* Azul do Céu */
+            --ismh-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animação de flutuação para a Logo */
+        @keyframes floatLogo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Navbar personalizada */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            padding: 10px 0;
+        }
+        .navbar-brand img {
+            max-height: 80px;
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: var(--ismh-green) !important;
+            margin: 0 10px;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--ismh-gold);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(27, 67, 50, 0.5)), 
+                        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Cards de Ensino */
+        .card-edu {
+            border: none;
+            border-top: 5px solid var(--ismh-gold);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: white;
+        }
+        .card-edu:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-top-color: var(--ismh-blue);
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--ismh-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--ismh-green);
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+        .card-edu:hover .icon-circle {
+            background: var(--ismh-green);
+            color: white;
+        }
+
+        /* Seção Sobre */
+        .about-section { padding: 100px 0; }
+        .text-highlight { color: var(--ismh-gold); font-weight: bold; }
+
+        /* Botões */
+        .btn-primary {
+            background-color: var(--ismh-green);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: var(--ismh-gold);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ismh-green);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        /* Scroll Smooth */
+        html { scroll-behavior: smooth; }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .navbar-brand img { max-height: 60px; }
+        }
