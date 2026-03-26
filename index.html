@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISMH - Institution Scolaire Menard Horizon</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --ismh-green: #1B4332; /* Verde do Logo */
+            --ismh-gold: #B8860B;  /* Dourado do Logo */
+            --ismh-blue: #87CEEB;  /* Azul do Céu */
+            --ismh-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animação de flutuação para a Logo */
+        @keyframes floatLogo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Navbar personalizada */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            padding: 10px 0;
+        }
+        .navbar-brand img {
+            max-height: 80px;
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: var(--ismh-green) !important;
+            margin: 0 10px;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--ismh-gold);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(27, 67, 50, 0.5)), 
+                        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Cards de Ensino */
+        .card-edu {
+            border: none;
+            border-top: 5px solid var(--ismh-gold);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: white;
+        }
+        .card-edu:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-top-color: var(--ismh-blue);
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--ismh-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--ismh-green);
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+        .card-edu:hover .icon-circle {
+            background: var(--ismh-green);
+            color: white;
+        }
+
+        /* Seção Sobre */
+        .about-section { padding: 100px 0; }
+        .text-highlight { color: var(--ismh-gold); font-weight: bold; }
+
+        /* Botões */
+        .btn-primary {
+            background-color: var(--ismh-green);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: var(--ismh-gold);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ismh-green);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        /* Scroll Smooth */
+        html { scroll-behavior: smooth; }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .navbar-brand img { max-height: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="ISMH Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">A Instituição</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#missao">Notre Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ensino">Ensino</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container" data-aos="zoom-out">
+            <h1 class="mb-4">Institution Scolaire Menard Horizon</h1>
+            <p class="lead mb-5 fs-3">Construire l'avenir à Morne-Rouge, Haïti.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#ensino" class="btn btn-primary btn-lg shadow">Nos Programmes</a>
+                <a href="#contato" class="btn btn-outline-light btn-lg rounded-pill px-4 d-flex align-items-center">Inscriptions</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-5" data-aos="fade-right">
+                    <i class="fas fa-book-open fa-4x mb-3" style="color: var(--ismh-gold);"></i>
+                    <h2 class="display-5 fw-bold mb-4">Fondée en <span class="text-highlight">2026</span></h2>
+                    <p class="text-muted fs-5">Située au cœur de Morne-Rouge, l'ISMH est née avec la vision d'offrir une éducation d'excellence ancrée dans les valeurs humaines et le respect de notre environnement.</p>
+                    <p class="text-muted">Un horizon de possibilités pour chaque enfant haïtien.</p>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <img src="instituto.png" class="img-fluid rounded-4 shadow-lg" alt="Bâtiment de l'école ISMH">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="missao" style="background-color: #f0f9ff; border-top: 5px solid var(--ismh-blue); border-bottom: 5px solid var(--ismh-blue);">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-4 text-center" data-aos="zoom-in">
+                    <div class="display-1" style="color: var(--ismh-blue);">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="fw-bold mt-3" style="color: var(--ismh-green);">Éclairer l'Avenir</h3>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                                <h4 class="fw-bold" style="color: var(--ismh-gold);"><i class="fas fa-bullseye me-2"></i>Mission</h4>
+                                <p class="text-muted">Fournir une éducation de qualité qui favorise le développement intégral de l'élève, en alliant excellence académique et valeurs citoyennes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                                <h4 class="fw-bold" style="color: var(--ismh-gold);"><i class="fas fa-eye me-2"></i>Vision</h4>
+                                <p class="text-muted">Être une institution de référence en Haïti, reconnue pour former des leaders conscients, créatifs e préparés.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-aos="fade-up" data-aos-delay="300">
+                            <div class="p-4 bg-white rounded-4 shadow-sm">
+                                <h4 class="fw-bold mb-3" style="color: var(--ismh-gold);"><i class="fas fa-heart me-2"></i>Nos Valeurs</h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill bg-success p-2 px-3">Discipline</span>
+                                    <span class="badge rounded-pill bg-warning text-dark p-2 px-3">Intégrité</span>
+                                    <span class="badge rounded-pill bg-info text-dark p-2 px-3">Respect de la Nature</span>
+                                    <span class="badge rounded-pill bg-dark p-2 px-3">Excellence</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5" id="ensino">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold display-6">Nos Programmes Académiques</h2>
+                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--ismh-gold); border-radius: 2px;"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-edu h-100 p-4 text-center">
+                        <div class="icon-circle"><i class="fas fa-child"></i></div>
+                        <h4 class="fw-bold">Préscolaire</h4>
+                        <p class="text-muted">Éveil, créativité et premiers pas vers la connaissance dans un cadre sécurisé.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card card-edu h-100 p-4 text-center">
+                        <div class="icon-circle"><i class="fas fa-pencil-alt"></i></div>
+                        <h4 class="fw-bold">Primaire</h4>
+                        <p class="text-muted">Apprentissage fondamental et développement des capacités analytiques.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-edu h-100 p-4 text-center">
+                        <div class="icon-circle"><i class="fas fa-palette"></i></div>
+                        <h4 class="fw-bold">Extras</h4>
+                        <p class="text-muted">Culture, Sport et Technologie pour une formation complète.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="contato">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-5" data-aos="fade-right">
+                    <h2 class="fw-bold mb-4">Contactez-nous</h2>
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-map-marker-alt fs-4 me-3 text-highlight"></i>
+                        <p class="fs-5">Morne-Rouge, Plaine-du-Nord, Haïti</p>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-envelope fs-4 me-3 text-highlight"></i>
+                        <p class="fs-5">contact@ismh.edu.ht</p>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="fab fa-whatsapp fs-4 me-3 text-success"></i>
+                        <p class="fs-5">+509 XX XX XX XX</p>
+                    </div>
+                </div>
+                <div class="col-md-7" data-aos="fade-left">
+                    <div class="card border-0 shadow-lg p-4 rounded-4">
+                        <h4 class="mb-4 fw-bold">Demande d'Information</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Prénom"></div>
+                                <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Nom"></div>
+                            </div>
+                            <div class="mb-3"><input type="email" class="form-control" placeholder="Email"></div>
+                            <div class="mb-3"><textarea class="form-control" rows="4" placeholder="Votre question ou demande d'inscription..."></textarea></div>
+                            <button type="submit" class="btn btn-primary w-100 shadow-sm">Envoyer le Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <img src="logo.png" alt="ISMH Logo" style="max-height: 100px; margin-bottom: 25px;">
+            <h5 class="fw-bold">Institution Scolaire Menard Horizon</h5>
+            <p class="text-light opacity-75">Éduquer pour transformer le futur de Morne-Rouge.</p>
+            <hr class="my-4 opacity-25">
+            <p class="mb-3">&copy; 2026 ISMH - Haïti. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Inicialização do AOS (Animações)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Controle da Navbar ao rolar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.style.padding = '5px 0';
+                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.padding = '10px 0';
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
